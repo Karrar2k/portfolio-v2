@@ -54,8 +54,37 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
     return () => clearInterval(timer);
   }, [handleNext, totalProjects]);
 
+  // Moved useEffect for title underline animation
+  useEffect(() => {
+    const titleUnderlineElement = document.getElementById('title-underline');
+
+    if (totalProjects <= 1) {
+      if (titleUnderlineElement) {
+        titleUnderlineElement.style.width = '0';
+        titleUnderlineElement.style.transition = 'none';
+      }
+      return;
+    }
+
+    if (!titleUnderlineElement) return;
+
+    titleUnderlineElement.style.width = '0';
+    titleUnderlineElement.style.transition = 'none';
+    
+    void titleUnderlineElement.offsetHeight; 
+    
+    const animationTimeout: NodeJS.Timeout = setTimeout(() => {
+      titleUnderlineElement.style.transition = 'width 14.7s linear';
+      titleUnderlineElement.style.width = '100%';
+    }, 50);
+    
+    return () => {
+      clearTimeout(animationTimeout);
+    };
+  }, [totalProjects, currentIndex]);
+
   if (totalProjects === 0) {
-    return <div className="text-center py-10">No projects to display.</div>;
+    return <div className="text-center py-10">No projects.</div>;
   }
 
   const getCardStyle = (index: number): React.CSSProperties => {
@@ -122,36 +151,8 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
       };
     }
   };
-  useEffect(() => {
-    if (totalProjects <= 1) return;
-    
-    let animationTimeout: NodeJS.Timeout;
-    
-    const updateUnderline = () => {
-      const titleUnderlineElement = document.getElementById('title-underline');
-      if (!titleUnderlineElement) return;
-      
-      // Reset
-      titleUnderlineElement.style.width = '0';
-      titleUnderlineElement.style.transition = 'none';
-      
-      void titleUnderlineElement.offsetHeight;
-      
-      // Slight delay for synchro
-      animationTimeout = setTimeout(() => {
-        titleUnderlineElement.style.transition = 'width 14.7s linear';
-        titleUnderlineElement.style.width = '100%';
-      }, 50);
-    };
-    
-    updateUnderline();
-    
-    // cleanup for timeout
-    return () => {
-      if (animationTimeout) clearTimeout(animationTimeout);
-    };
-  }, [totalProjects, currentIndex]);
-    return (
+
+  return (
     <div className="relative w-full flex flex-col items-center py-0 overflow-hidden">
       <div className="flex items-center justify-center w-full mb-0 gap-3">
         <div className="h-px bg-[var(--divider-color)] w-8 md:w-16 lg:w-20"></div>
@@ -173,15 +174,15 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
           return (
             <div
               key={project.id}
-              className="absolute w-11/12 sm:w-10/12 md:w-[680px] lg:w-[720px] xl:w-[800px] h-auto cursor-pointer"
-              style={{ 
-                ...getCardStyle(index), 
-                left: '50%', 
+              className="absolute w-11/12 sm:w-10/12 md:w-[680px] lg:w-[720px] xl:w-[800px] h-auto"
+              style={{
+                ...getCardStyle(index),
+                left: '50%',
                 top: '50%'
               }}
               onClick={() => {
                 if (index !== currentIndex && !isAnimating) {
-                  handleDotClick(index); 
+                  handleDotClick(index);
                 }
               }}
             >

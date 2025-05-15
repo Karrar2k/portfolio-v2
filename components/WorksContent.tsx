@@ -83,6 +83,26 @@ const allProjects: Project[] = [
   {
     id: 6,
     type: "Personal",
+    title: "Portfolio V1",
+    description:
+      "My first portfolio website, showcasing my skills and projects. It was a simple yet effective way to present my work and experience to potential clients and employers.",
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "RESTful APIs",
+      "HTML",
+      "CSS",
+      "Git",
+    ],
+    image: "/PFss.png",
+    gifImage: "/PFgif.gif",
+    liveLink: "https://main.d35s5uxy1pva79.amplifyapp.com/",
+    sourceLink: "https://github.com/Karrar2k/Portfolio-v1",
+  },
+  {
+    id: 7,
+    type: "Personal",
     title: "Beckton FC",
     description:
       "A full stack e-commerce web app for my university final year project, with ticket booking, merchandise, and user accounts. Complete with a custom admin panel for managing users and orders, as well as a tailored news display through an API integration.",
@@ -98,10 +118,11 @@ const allProjects: Project[] = [
     ],
     image: "/BFCv2ss.png",
     gifImage: "/BFCv2gif.gif",
-    liveLink: "#",
+    liveLink: "https://main.d3bteufoxev8un.amplifyapp.com/",
+    sourceLink: "https://github.com/Karrar2k/Beckton-FC-FE-v2",
   },
   {
-    id: 7,
+    id: 8,
     type: "Personal",
     title: "React To-Do List",
     description:
@@ -109,10 +130,11 @@ const allProjects: Project[] = [
     technologies: ["React", "JavaScript", "HTML", "CSS"],
     image: "/TODOss.png",
     gifImage: "/TODOgif.gif",
-    sourceLink: "#",
+    liveLink: "https://main.dsmvkovh8bek9.amplifyapp.com/",
+    sourceLink: "https://github.com/Karrar2k/To-Do-List",
   },
   {
-    id: 8,
+    id: 9,
     type: "Personal",
     title: "Prayer Times App",
     description:
@@ -122,14 +144,14 @@ const allProjects: Project[] = [
       "Node.js",
       "Express",
       "PostgreSQL",
-      "JavaScript",
+      "TypeScript",
       "HTML",
       "CSS",
     ],
     image: "/PRAYss.png",
     gifImage: "/PRAYgif.gif",
-    liveLink: "#",
-    sourceLink: "#",
+    liveLink: "https://main.d138243e3wm3ts.amplifyapp.com/",
+    sourceLink: "https://github.com/Karrar2k/Prayer-Times-FE",
   },
 ];
 

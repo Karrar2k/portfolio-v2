@@ -66,15 +66,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           }`}
         />
           {/* GIF Image (positioned beneath, revealed on hover) */}
-        {project.gifImage && (
+        {project.gifImage && isHovered && (
           <Image
-            key={gifKey}
-            src={isHovered ? project.gifImage : ''}
+            key={gifKey} // Ensures re-render and GIF replay
+            src={project.gifImage} // Now only renders when isHovered and gifImage exists
             alt={`${project.title} animation`}
             layout="fill"
             objectFit="cover"
-            className="md:rounded-l-lg md:rounded-tr-none rounded-t-lg z-0"
-            priority={isHovered}
+            className="md:rounded-l-lg md:rounded-tr-none rounded-t-lg z-0 transition-opacity duration-250 ease-in-out opacity-100"
+            priority // Prioritize loading when it becomes visible
           />
         )}
       </div>{/* Content Section */}

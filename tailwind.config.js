@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ["'Koulen'", "cursive"],
-        sans: ["'Instrument Sans'", "sans-serif"],
+        sans: ['var(--font-instrument-sans)', 'sans-serif'],
+        title: ['var(--font-koulen)', 'cursive'],
       },
       colors: {
         background: "var(--bg-color)",

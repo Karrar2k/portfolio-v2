@@ -1,5 +1,22 @@
 import type { Metadata } from "next";
+import { Instrument_Sans, Koulen } from 'next/font/google';
 import "./globals.css";
+
+// Instrument Sans font
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-instrument-sans',
+  display: 'swap',
+});
+
+// Koulen font
+const koulen = Koulen({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-koulen',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Karrar Almayali | Portfolio",
@@ -12,12 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${instrumentSans.variable} ${koulen.variable}`}>
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&family=Koulen&display=swap" rel="stylesheet" />
       </head>
-      <body suppressHydrationWarning className="font-sans antialiased bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
-        {/* Non-hydrating script to prevent flash */}
+      <body suppressHydrationWarning className={`${instrumentSans.className} antialiased bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300`}>
+        {/* script to prevent flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
