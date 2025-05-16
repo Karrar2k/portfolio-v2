@@ -52,7 +52,7 @@ const skillCategories = [
   {
     name: "Testing",
     icon: <TestTube2 size={20} />,
-    skills: ["React Testing Library", "Cypress"],
+    skills: ["React Testing Library", "Jest"],
     color: "bg-purple-600",
     hoverColor: "hover:bg-purple-500"
   },
@@ -66,7 +66,7 @@ const skillCategories = [
   {
     name: "Currently Learning",
     icon: <BookOpen size={20} />,
-    skills: ["React Native", "Jest", "Docker"],
+    skills: ["React Native", "Cypress", "Docker", "GraphQL"],
     color: "bg-fuchsia-600",
     hoverColor: "hover:bg-fuchsia-500"
   }
