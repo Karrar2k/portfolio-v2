@@ -86,21 +86,17 @@ export default function AboutContent() {
         <p>
           <strong>I&apos;m a passionate full stack software engineer</strong>{" "}
           fixated on thoughtful development and well-executed solutions. I enjoy
-          turning ideas into real, working applications that&nbsp; run smoothly,
+          turning ideas into real, working applications that run smoothly,
           look great, and make sense.
         </p>
         <p>
           I primarily work with the <strong>PERN stack</strong>
-          <em> (PostgreSQL, Express, React, Node.js)</em> but{" "}
-          <strong>I&apos;m always learning and expanding my skill set.</strong>{" "}
-          Whether it&apos;s <strong>API integrations</strong>,{" "}
-          <strong>creating databases</strong>, or{" "}
-          <strong>
-            building front-end user interfaces, I focus on&nbsp; delivering
-            intuitive, engaging solutions
-          </strong>
-          with an emphasis on <strong>reliable</strong> and{" "}
-          <strong>maintainable</strong> code.
+          <em> (PostgreSQL, Express, React, Node.js)</em> but I&apos;m always
+          learning and expanding my skill set. Whether it&apos;s{" "}
+          <strong>API integrations</strong>, <strong>creating databases</strong>
+          , or <strong>building front-end user interfaces</strong>, I focus
+          on&nbsp; delivering intuitive, engaging solutions with an emphasis on{" "}
+          <strong>reliable</strong> and <strong>maintainable</strong> code.
         </p>
       </div>{" "}
       <h3 className="text-2xl koulen-regular mt-8 mb-6">
@@ -136,7 +132,13 @@ export default function AboutContent() {
       </div>
       <div className="instrument-sans text-lg mt-0">
         <p>
-        <strong>I&apos;m <em>always</em> open to new challenges and opportunities</strong> to grow into a more competent engineer. I believe in the <strong>power of collaboration</strong> and am eager to work with others who share <strong>my passion for technology and innovation.</strong>
+          <strong>
+            I&apos;m <em>always</em> open to new challenges and opportunities
+          </strong>{" "}
+          to grow into a more competent engineer. I believe in the{" "}
+          power of collaboration and am eager to work with
+          others who share{" "}
+          <strong>my passion for technology and innovation.</strong>
         </p>
       </div>
     </motion.div>

@@ -197,14 +197,14 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
         <>
           <button
             onClick={handlePrev}
-            className="absolute left-0 md:left-5 top-1/2 -translate-y-1/2 z-30 p-2 bg-[var(--secondary-bg)] hover:bg-[var(--accent-color)] hover:text-[var(--button-text-color)] rounded-full transition-colors text-[var(--text-color)] shadow-md"
+            className="absolute left-0 md:left-5 top-1/2 -translate-y-1/2 z-30 p-2 bg-[var(--secondary-bg)] hover:bg-[var(--accent-color)] hover:text-[var(--button-text-color)] rounded-full transition-colors text-[var(--text-color)] shadow-md cursor-pointer"
             aria-label="Previous Project"
           >
             <ChevronLeftIcon className="h-8 w-8 md:h-10 md:w-10" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 md:right-5 top-1/2 -translate-y-1/2 z-30 p-2 bg-[var(--secondary-bg)] hover:bg-[var(--accent-color)] hover:text-[var(--button-text-color)] rounded-full transition-colors text-[var(--text-color)] shadow-md"
+            className="absolute right-0 md:right-5 top-1/2 -translate-y-1/2 z-30 p-2 bg-[var(--secondary-bg)] hover:bg-[var(--accent-color)] hover:text-[var(--button-text-color)] rounded-full transition-colors text-[var(--text-color)] shadow-md cursor-pointer"
             aria-label="Next Project"
           >
             <ChevronRightIcon className="h-8 w-8 md:h-10 md:w-10" />

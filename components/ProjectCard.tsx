@@ -68,13 +68,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {/* GIF Image (positioned beneath, revealed on hover) */}
         {project.gifImage && isHovered && (
           <Image
-            key={gifKey} // Ensures re-render and GIF replay
-            src={project.gifImage} // Now only renders when isHovered and gifImage exists
+            key={gifKey}
+            src={project.gifImage}
             alt={`${project.title} animation`}
             layout="fill"
             objectFit="cover"
             className="md:rounded-l-lg md:rounded-tr-none rounded-t-lg z-0 transition-opacity duration-250 ease-in-out opacity-100"
-            priority // Prioritize loading when it becomes visible
+            priority
           />
         )}
       </div>{/* Content Section */}
@@ -110,7 +110,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.link || project.liveLink!}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex-grow sm:flex-grow-0 text-center px-3 py-1.5 text-xs md:text-sm rounded-md hover:bg-opacity-80 transition-colors duration-300 koulen-regular tracking-wide bg-[var(--accent-color)] text-[var(--button-text-color)]"
+                className="w-full sm:w-auto flex-grow sm:flex-grow-0 text-center px-3 py-1.5 text-xs md:text-sm rounded-md transition-colors duration-300 koulen-regular tracking-wide bg-[var(--accent-color)] text-[var(--button-text-color)] hover:bg-[var(--accent-color)]"
               >
                 View Project
               </a>
@@ -120,7 +120,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.sourceLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex-grow sm:flex-grow-0 text-center px-3 py-1.5 border text-xs md:text-sm rounded-md hover:text-white transition-colors duration-300 koulen-regular tracking-wide border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)]"
+                className="w-full sm:w-auto flex-grow sm:flex-grow-0 text-center px-3 py-1.5 border text-xs md:text-sm rounded-md hover:text-slate-800 transition-colors duration-300 koulen-regular tracking-wide border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)]"
               >
                 View Repo
               </a>
