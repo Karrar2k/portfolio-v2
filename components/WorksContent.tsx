@@ -153,6 +153,22 @@ const allProjects: Project[] = [
     liveLink: "https://main.d138243e3wm3ts.amplifyapp.com/",
     sourceLink: "https://github.com/Karrar2k/Prayer-Times-FE",
   },
+  {
+    id: 10,
+    type: "Personal",
+    title: "Modoro - Productivity App",
+    description:
+      "Built a productivity app using vanilla JavaScript, HTML, and CSS, featuring a Pomodoro timer, task management, and a minimalist design. This project showcases my ability to create functional and user-friendly applications without relying on frameworks.",
+    technologies: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+    ],
+    image: "/MODOROss.png",
+    gifImage: "/MODOROgif.gif",
+    liveLink: "https://www.modoro.app/",
+    sourceLink: "https://github.com/Karrar2k/Modoro",
+  },
 ];
 
 type ProjectType = "All" | "Freelance" | "Personal";
