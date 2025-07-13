@@ -164,7 +164,7 @@ const allProjects: Project[] = [
       "HTML",
       "CSS",
     ],
-    image: "/MODOROss.png",
+    image: "/MODORO.png",
     gifImage: "/MODOROgif.gif",
     liveLink: "https://www.modoro.app/",
     sourceLink: "https://github.com/Karrar2k/Modoro",
