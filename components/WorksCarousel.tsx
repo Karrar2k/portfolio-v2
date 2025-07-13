@@ -130,7 +130,7 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
         zIndex: 10,
         filter: blurSide,
       };
-    } else { // non showing cards
+    } else {
       const offset = index - currentIndex;
       const normalizedOffset = (offset + totalProjects) % totalProjects;
       let sign = 0;
@@ -192,7 +192,6 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
         })}
       </div>
 
-      {/* left/right arrows */}
       {totalProjects > 1 && (
         <>
           <button
@@ -210,7 +209,7 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
             <ChevronRightIcon className="h-8 w-8 md:h-10 md:w-10" />
           </button>
         </>
-      )}      {/* Dots below */}
+      )}
       {totalProjects > 1 && (
         <div className="flex justify-center space-x-2 mt-0 z-30">
           {projects.map((_, index) => (
