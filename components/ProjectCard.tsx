@@ -48,10 +48,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     'overflow-hidden'
   ].join(' ');
 
+  // Text-only card (no screenshot), e.g. pointing visitors to the new portfolio
+  if (!project.image) {
+    const href = project.link || project.liveLink;
+    return (
+      <div className="w-full bg-[var(--secondary-bg)] rounded-lg shadow-xl overflow-hidden flex flex-col items-center justify-center text-center gap-6 px-14 py-14 md:px-20 md:py-20 min-h-[340px] md:min-h-[420px]">
+        <h3 className="koulen-regular text-4xl md:text-5xl tracking-wide">
+          {project.title}
+        </h3>
+        <p className="instrument-sans text-base md:text-lg max-w-xl">
+          {project.description}
+        </p>
+        {href && (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 px-6 py-3 text-lg md:text-xl rounded-md transition-transform duration-300 hover:scale-105 koulen-regular tracking-wide bg-[var(--accent-color)] text-[var(--button-text-color)]"
+          >
+            Visit {href.replace(/^https?:\/\/(www\.)?/, "")}
+          </a>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className={cardClasses}>
       {/* Image Section */}
-      {project.image && (
       <div 
         className="w-full md:w-1/2 aspect-square relative flex-shrink-0 md:rounded-l-lg md:rounded-tr-none rounded-t-lg overflow-hidden"
         onMouseEnter={handleMouseEnter}
@@ -78,14 +102,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             priority
           />
         )}
-      </div>
-      )}
-      {/* Content Section */}
-      <div className={`w-full ${project.image ? 'md:w-1/2' : ''} p-4 md:p-5 flex flex-col justify-between flex-grow`}>
+      </div>{/* Content Section */}
+      <div className="w-full md:w-1/2 p-4 md:p-5 flex flex-col justify-between flex-grow">
         <div className="flex flex-col h-full">
-          {!project.image && (
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-          )}
           <div className="flex-grow mb-3 overflow-hidden">
             <p className="text-xs md:text-sm instrument-sans line-clamp-[8] md:line-clamp-none overflow-y-auto pr-1 max-h-36 md:max-h-48">
               {project.description}

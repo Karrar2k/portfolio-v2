@@ -203,19 +203,19 @@ export default function Home() {
       {/* Main Page Layout: Two Columns with Fixed Widths */}
       <div className="flex flex-1 flex-col md:flex-row">
         {/* Left Column: Name, Subtitle, Social Links, Tab Buttons, Footer - Fixed Position */}
-        <div className="w-full md:w-[30%] md:min-w-[30%] md:max-w-[30%] flex flex-col justify-between p-8 md:p-12 pt-12 md:pt-24 md:fixed md:h-screen">
+        <div className="w-full md:w-[25%] md:min-w-[25%] md:max-w-[25%] flex flex-col justify-between p-8 lg:p-12 pt-12 md:pt-24 md:fixed md:h-screen">
           <div>
             {/* Static Name Placeholder (Visible after splash animation) */}
             <div
               ref={nameGapRef}
-              className="min-h-[70px] min-w-[300px] md:min-w-[350px] flex items-center mb-3"
+              className="min-h-[70px] min-w-[300px] md:min-w-0 flex items-center mb-3"
             >
               {movingDone && (
                 <motion.h1
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className="koulen-regular text-5xl md:text-6xl tracking-wide text-left whitespace-nowrap"
+                  className="koulen-regular text-5xl md:text-[clamp(1.5rem,2.8vw,3.75rem)] tracking-wide text-left whitespace-nowrap"
                 >
                   {NAME}
                 </motion.h1>
@@ -293,13 +293,13 @@ export default function Home() {
         </div>
 
         {/* Invisible spacer div to offset content for the fixed left column */}
-        <div className="hidden md:block w-[30%] min-w-[30%] shrink-0"></div>
+        <div className="hidden md:block w-[25%] min-w-[25%] shrink-0"></div>
 
         {/* Thin Vertical Divider Line - Fixed Position */}
-        <div className="hidden md:block w-px bg-[var(--divider-color)] h-screen fixed left-[30%] top-0 z-10"></div>
+        <div className="hidden md:block w-px bg-[var(--divider-color)] h-screen fixed left-[25%] top-0 z-10"></div>
 
         {/* Right Column: Content Area with Fixed Width - Scrollable */}
-        <div className="w-full md:w-[70%] md:min-w-[70%] md:max-w-[70%] flex flex-col p-8 pt-6 md:pt-24 md:pl-12 overflow-y-auto">
+        <div className="w-full md:w-[75%] md:min-w-[75%] md:max-w-[75%] flex flex-col p-8 pt-6 md:pt-24 md:pl-12 overflow-y-auto">
           {/* Content Container */}
           <div className="h-full">
             {/* Tab Content Display Area */}
@@ -347,7 +347,7 @@ export default function Home() {
             <motion.div
               key="splash-name"
               ref={splashNameRef}
-              className="koulen-regular text-5xl md:text-6xl tracking-wide whitespace-nowrap z-[1001] text-[var(--text-color)] absolute"
+              className="koulen-regular text-5xl md:text-[clamp(1.5rem,2.8vw,3.75rem)] tracking-wide whitespace-nowrap z-[1001] text-[var(--text-color)] absolute"
               style={{
                 left: "50%",
                 top: "50%",

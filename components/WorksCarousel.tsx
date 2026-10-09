@@ -167,14 +167,14 @@ const WorksCarousel: React.FC<WorksCarouselProps> = ({ projects: projectsProp })
         </h2>
         <div className="h-px bg-[var(--divider-color)] w-8 md:w-16 lg:w-20"></div>
       </div>      {/* for 3d effect purposes */}      <div 
-        className="relative w-full h-[380px] sm:h-[430px] md:h-[480px] lg:h-[520px] flex items-center justify-center mt-0"
+        className="relative w-full h-[440px] sm:h-[500px] md:h-[560px] lg:h-[600px] flex items-center justify-center mt-0"
         style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}
       >
         {projects.map((project, index) => {
           return (
             <div
               key={project.id}
-              className="absolute w-11/12 sm:w-10/12 md:w-[680px] lg:w-[720px] xl:w-[800px] h-auto"
+              className="absolute w-11/12 sm:w-10/12 md:w-[760px] lg:w-[820px] xl:w-[920px] max-w-[85%] h-auto"
               style={{
                 ...getCardStyle(index),
                 left: '50%',
