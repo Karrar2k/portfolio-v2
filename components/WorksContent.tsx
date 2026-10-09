@@ -1,193 +1,55 @@
 "use client";
 
-import { useState } from "react";
-import WorksCarousel from "./WorksCarousel";
-import { Project } from "./ProjectCard";
+import ProjectCard, { Project } from "./ProjectCard";
 
-const allProjects: Project[] = [
-  // FREELANCE
+const NEW_PORTFOLIO_URL = "https://www.karrar.co.uk";
+
+const projects: Project[] = [
   {
     id: 1,
     type: "Freelance",
-    title: "Medical Express Clinic",
+    title: "Freelance Work",
     description:
-      "This project involved the full-stack rebuild of a medical clinic's website into a feature-rich web application using the PERN stack. The goal was to transform a basic online presence into a comprehensive platform that streamlined clinic operations and enhanced the patient experience. Key features included a custom appointment booking system, user accounts for patients, and multilingual support. I also integrated third-party APIs for payment processing and appointment confirmations.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Stripe",
-      "Mailchimp",
-      "RESTful APIs",
-      "Git",
-    ],
-    image: "/MECss.png",
-    gifImage: "/MECgif.gif",
-    liveLink: "https://www.medicalexpressclinic.co.uk/",
+      "Client sites and web apps I've built, from booking systems to e-commerce. They now live on my new portfolio, with fuller write-ups and up-to-date screenshots.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Shopify"],
+    liveLink: NEW_PORTFOLIO_URL,
   },
   {
     id: 2,
-    type: "Freelance",
-    title: "The Zahra Trust",
+    type: "Personal",
+    title: "Personal Projects",
     description:
-      "This project focused on developing a multi-page donation site for a charity, addressing the need for online fundraising capabilities. The outdated website lacked a payment gateway, hindering donation collection. I designed and built a solution that integrated Stripe for processing single and recurring donations and Mailchimp for donor communication. This project allowed me to further refine my RESTful API integration skills.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Stripe",
-      "Mailchimp",
-      "RESTful APIs",
-      "Git",
-    ],
-    image: "/ZTss.png",
-    gifImage: "/ZTgif.gif",
-    liveLink: "https://zahratrust.com/",
+      "Side projects and experiments, including my university final year project. You'll find the latest versions and source links on my new portfolio.",
+    technologies: ["React", "TypeScript", "Next.js"],
+    liveLink: NEW_PORTFOLIO_URL,
   },
   {
     id: 3,
-    type: "Freelance",
-    title: "The Zahra Trust Shop",
-    description:
-      "This was a volunteer project to create an online storefront for The Zahra Trust, selling apparel and merchandise to raise funds for the charity. Due to the client's preference for a separate site, I utilised the Shopify platform to quickly establish the store. The project demonstrated my ability to learn and implement a new platform and templating language efficiently. ",
-    technologies: ["Shopify", "Liquid", "JavaScript", "HTML", "CSS"],
-    image: "/ZTSss.png",
-    gifImage: "/ZTSgif.gif",
-    liveLink: "https://zahratrustshop.com/",
-  },
-  {
-    id: 4,
-    type: "Freelance",
-    title: "Design The Wall",
-    description:
-      "A Shopify store for a wall-panel company, delivered in under a week with a modern, sleek design.",
-    technologies: ["Shopify", "Liquid", "CSS"],
-    image: "/DTWss.png",
-    gifImage: "/DTWgif.gif",
-    liveLink: "https://designthewall.co.uk/",
-  },
-  {
-    id: 5,
-    type: "Freelance",
-    title: "Blood Test London",
-    description:
-      "This project involved developing a specialized website for blood test appointments for Medical Express Clinic, using the Shopify platform. A key challenge was the lack of a suitable appointment booking app within Shopify, which led to the development of a custom JavaScript-based booking system. This system included features like custom time-slot control and synchronized live availability. The project also included the implementation of automated test result delivery and a streamlined booking process.",
-    technologies: ["Shopify", "JavaScript", "Liquid", "HTML", "CSS"],
-    image: "/BTLss.png",
-    gifImage: "/BTLgif.gif",
-    liveLink: "https://1gw1xk-pf.myshopify.com/",
-  },
-  // PERSONAL
-  {
-    id: 6,
     type: "Personal",
-    title: "Portfolio V1",
+    title: "New Portfolio",
     description:
-      "My first portfolio website, showcasing my skills and projects. It was a simple yet effective way to present my work and experience to potential clients and employers.",
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "RESTful APIs",
-      "HTML",
-      "CSS",
-      "Git",
-    ],
-    image: "/PFss.png",
-    gifImage: "/PFgif.gif",
-    liveLink: "https://main.d35s5uxy1pva79.amplifyapp.com/",
-    sourceLink: "https://github.com/Karrar2k/Portfolio-v1",
-  },
-  {
-    id: 7,
-    type: "Personal",
-    title: "Beckton FC",
-    description:
-      "A full stack e-commerce web app for my university final year project, with ticket booking, merchandise, and user accounts. Complete with a custom admin panel for managing users and orders, as well as a tailored news display through an API integration.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "RESTful APIs",
-      "HTML",
-      "CSS",
-      "Git",
-    ],
-    image: "/BFCv2ss.png",
-    gifImage: "/BFCv2gif.gif",
-    liveLink: "https://main.d3bteufoxev8un.amplifyapp.com/",
-    sourceLink: "https://github.com/Karrar2k/Beckton-FC-FE-v2",
-  },
-  {
-    id: 8,
-    type: "Personal",
-    title: "React To-Do List",
-    description:
-      "A creative to-do list app with theme selection, attractive animations, and localStorage for persistence.",
-    technologies: ["React", "JavaScript", "HTML", "CSS"],
-    image: "/TODOss.png",
-    gifImage: "/TODOgif.gif",
-    liveLink: "https://main.dsmvkovh8bek9.amplifyapp.com/",
-    sourceLink: "https://github.com/Karrar2k/To-Do-List",
-  },
-  {
-    id: 9,
-    type: "Personal",
-    title: "Prayer Times App",
-    description:
-      "I developed a full-stack web application using the PERN stack to display daily prayer times with a focus on user customization and accessibility. This personal project allowed me to explore features such as a custom reminder system and a dynamic English-Arabic language toggle. It demonstrates my ability to independently design and implement a complete application with a user-centric approach.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "TypeScript",
-      "HTML",
-      "CSS",
-    ],
-    image: "/PRAYss.png",
-    gifImage: "/PRAYgif.gif",
-    liveLink: "https://main.d138243e3wm3ts.amplifyapp.com/",
-    sourceLink: "https://github.com/Karrar2k/Prayer-Times-FE",
+      "This site has been retired in favour of a new portfolio. Head over there for my current work, experience and contact details.",
+    technologies: ["Next.js", "TypeScript"],
+    liveLink: NEW_PORTFOLIO_URL,
   },
 ];
 
-type ProjectType = "All" | "Freelance" | "Personal";
-
 export default function WorksContent() {
-  const [activeTab, setActiveTab] = useState<ProjectType>("All");
-
-  // Filter project
-  const filteredProjects = activeTab === "All"
-    ? allProjects
-    : allProjects.filter((p) => p.type === activeTab);  return (
+  return (
     <section id="works" className="py-4 md:py-6 bg-[var(--primary-bg)] text-[var(--text-color)]">
       <div className="container mx-auto px-4">
         <div className="mb-6 md:mb-8 max-w-3xl mx-auto">
           <h2 className="text-3xl koulen-regular mb-3">My Works</h2>
           <p className="instrument-sans text-lg mb-4">
-            Here&apos;s a selection of projects I&apos;ve worked on, showcasing my skills in developing modern, responsive, and user-friendly web applications. Explore a mix of freelance work and personal endeavors.
+            My projects have moved to my new portfolio. Each card below links straight there.
           </p>
         </div>         
-        <div className="flex justify-center gap-3 mb-2">
-          {["All", "Freelance", "Personal"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab as ProjectType)}
-              className={`px-3 py-1.5 rounded-full instrument-sans transition-all duration-300 border-2 font-semibold text-sm 
-                ${activeTab === tab 
-                  ? "bg-[var(--accent-color)] text-[var(--button-text-color)] border-[var(--accent-color)] scale-105 shadow-md" 
-                  : "bg-[var(--secondary-bg)] text-[var(--text-color)] border-[var(--divider-color)] hover:border-[var(--accent-color)] hover:scale-105"}`}
-            >
-              {tab}
-            </button>
+        
+        <div className="grid gap-4 md:grid-cols-3 max-w-5xl mx-auto">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-        
-        <WorksCarousel projects={filteredProjects} />
       </div>
     </section>
   );

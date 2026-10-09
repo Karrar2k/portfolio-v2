@@ -5,7 +5,7 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   gifImage?: string;
   type: "Freelance" | "Personal";
   technologies: string[];
@@ -51,13 +51,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className={cardClasses}>
       {/* Image Section */}
+      {project.image && (
       <div 
         className="w-full md:w-1/2 aspect-square relative flex-shrink-0 md:rounded-l-lg md:rounded-tr-none rounded-t-lg overflow-hidden"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <Image
-          src={project.image || '/placeholder-image.png'}
+          src={project.image}
           alt={project.title}
           layout="fill"
           objectFit="cover"
@@ -77,9 +78,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             priority
           />
         )}
-      </div>{/* Content Section */}
-      <div className="w-full md:w-1/2 p-4 md:p-5 flex flex-col justify-between flex-grow">
+      </div>
+      )}
+      {/* Content Section */}
+      <div className={`w-full ${project.image ? 'md:w-1/2' : ''} p-4 md:p-5 flex flex-col justify-between flex-grow`}>
         <div className="flex flex-col h-full">
+          {!project.image && (
+            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+          )}
           <div className="flex-grow mb-3 overflow-hidden">
             <p className="text-xs md:text-sm instrument-sans line-clamp-[8] md:line-clamp-none overflow-y-auto pr-1 max-h-36 md:max-h-48">
               {project.description}
